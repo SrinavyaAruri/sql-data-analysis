@@ -64,3 +64,31 @@ print("\nInsights:")
 print("- Gas shows consistent positive performance")
 print("- Oil trade has highest single trade profit")
 print("- Power shows mixed performance")
+
+# ------------------------
+# 5. Visualization (Matplotlib)
+# ------------------------
+
+import matplotlib.pyplot as plt
+
+# Total PnL by Commodity (Bar Chart)
+pnl_by_commodity = df.groupby("commodity")["pnl"].sum()
+
+plt.figure()
+pnl_by_commodity.plot(kind="bar")
+plt.title("Total PnL by Commodity")
+plt.xlabel("Commodity")
+plt.ylabel("PnL")
+plt.xticks(rotation=0)
+plt.show()
+
+# Total Volume by Commodity (Bar Chart)
+volume_by_commodity = df.groupby("commodity")["volume"].sum()
+
+plt.figure()
+volume_by_commodity.plot(kind="bar")
+plt.title("Total Volume by Commodity")
+plt.xlabel("Commodity")
+plt.ylabel("Volume")
+plt.xticks(rotation=0)
+plt.show()
